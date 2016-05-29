@@ -5,4 +5,10 @@ RUN pip install --upgrade https://storage.googleapis.com/tensorflow/linux/gpu/te
 
 RUN apt-get update && apt-get install -y emacs zsh
 
+ENV PATH $PATH:/usr/local/nvidia/bin
+ENV LD_LIBRARY_PAT /usr/local/nvidia/lib64:$LD_LIBRARY_PATH
+
+
+
+
 
