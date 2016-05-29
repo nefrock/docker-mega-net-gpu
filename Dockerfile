@@ -5,6 +5,4 @@ RUN pip install --upgrade https://storage.googleapis.com/tensorflow/linux/gpu/te
 
 RUN apt-get update && apt-get install -y emacs zsh
 
-ENV LD_LIBRARY_PATH /usr/local/cuda/lib64:/usr/local/cuda/targets/x86_64-linux/lib/stubs
-
 
