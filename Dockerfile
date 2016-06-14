@@ -9,6 +9,7 @@ RUN pip install --upgrade https://storage.googleapis.com/tensorflow/linux/gpu/te
 
 RUN pip install pyzmq --install-option="--zmq=bundled"
 RUN pip install chainer
+RUN pip install msgpack-python
 RUN apt-get update && apt-get install -y emacs zsh
 
 
