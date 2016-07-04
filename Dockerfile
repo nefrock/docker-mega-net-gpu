@@ -10,7 +10,7 @@ RUN pip install --upgrade https://storage.googleapis.com/tensorflow/linux/gpu/te
 RUN pip install pyzmq --install-option="--zmq=bundled"
 RUN pip install chainer
 RUN pip install msgpack-python
-RUN pip install seaborn tqdm wget sh colorama
+RUN pip install seaborn tqdm wget sh colorama mysql-python
 RUN apt-get update && apt-get install -y emacs zsh
 
 
