@@ -8,9 +8,6 @@ ENV LD_LIBRARY_PATH /usr/local/nvidia/lib64:$LD_LIBRARY_PATH
 RUN pip install --upgrade https://storage.googleapis.com/tensorflow/linux/gpu/tensorflow-0.9.0rc0-cp27-none-linux_x86_64.whl
 RUN pip install pyzmq --install-option="--zmq=bundled"
 RUN pip install chainer msgpack-python seaborn tqdm wget sh colorama mysql-python
-
-
-
-
-
+RUN pip install --upgrade --no-deps git+git://github.com/Theano/Theano.git
+RUN echo "[global]\ndevice=gpu\nfloatX=float32\noptimizer_including=cudnn\n[nvcc]\nfastmath=True" > /root/.theanorc
 
