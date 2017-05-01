@@ -36,13 +36,17 @@ RUN pip3 install \
 ENV PATH $PATH:/usr/local/nvidia/bin
 ENV LD_LIBRARY_PATH /usr/local/nvidia/lib64:$LD_LIBRARY_PATH
 
-RUN pip2 install https://storage.googleapis.com/tensorflow/linux/gpu/tensorflow_gpu-1.0.0rc2-cp27-none-linux_x86_64.whl
-RUN pip3 --no-cache-dir install https://storage.googleapis.com/tensorflow/linux/gpu/tensorflow_gpu-1.0.0rc2-cp35-cp35m-linux_x86_64.whl
-RUN pip2 install pyzmq --install-option="--zmq=bundled"
-RUN pip3 install pyzmq --install-option="--zmq=bundled"
-RUN pip2 install chainer msgpack-python seaborn tqdm wget sh colorama
-RUN pip3 install chainer msgpack-python seaborn tqdm wget sh colorama
 RUN pip2 install --upgrade --no-deps git+git://github.com/Theano/Theano.git
 RUN pip3 install --upgrade --no-deps git+git://github.com/Theano/Theano.git
 RUN echo "[global]\ndevice=gpu\nfloatX=float32\noptimizer_including=cudnn\n[nvcc]\nfastmath=True" > /root/.theanorc
 
+RUN pip2 install https://ci.tensorflow.org/view/Nightly/job/nightly-matrix-linux-gpu/TF_BUILD_IS_OPT=OPT,TF_BUILD_IS_PIP=PIP,TF_BUILD_PYTHON_VERSION=PYTHON2,label=gpu-linux/lastSuccessfulBuild/artifact/pip_test/whl/tensorflow_gpu-1.1.0-cp27-none-linux_x86_64.whl
+RUN pip3 --no-cache-dir install https://ci.tensorflow.org/view/Nightly/job/nightly-matrix-linux-gpu/TF_BUILD_IS_OPT=OPT,TF_BUILD_IS_PIP=PIP,TF_BUILD_PYTHON_VERSION=PYTHON3.5,label=gpu-linux/lastSuccessfulBuild/artifact/pip_test/whl/tensorflow_gpu-1.1.0-cp35-cp35m-linux_x86_64.whl
+RUN pip2 install pyzmq --install-option="--zmq=bundled"
+RUN pip3 install pyzmq --install-option="--zmq=bundled"
+RUN pip2 install msgpack-python seaborn tqdm wget sh colorama
+RUN pip3 install msgpack-python seaborn tqdm wget sh colorama
+RUN pip2 install chainer==1.23.0
+RUN pip3 install chainer==1.23.0
+RUN pip2 install keras==2.0.4
+RUN pip3 install keras==2.0.4
