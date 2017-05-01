@@ -34,7 +34,7 @@ RUN pip3 install \
 
 
 ENV PATH $PATH:/usr/local/nvidia/bin
-ENV LD_LIBRARY_PATH /usr/local/nvidia/lib64:$LD_LIBRARY_PATH
+ENV LD_LIBRARY_PATH /usr/local/cuda/extras/CUPTI/lib64:/usr/local/nvidia/lib64:$LD_LIBRARY_PATH
 
 RUN pip2 install --upgrade --no-deps git+git://github.com/Theano/Theano.git
 RUN pip3 install --upgrade --no-deps git+git://github.com/Theano/Theano.git
