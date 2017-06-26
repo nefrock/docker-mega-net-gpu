@@ -1,5 +1,6 @@
 FROM nefrock/docker-ai-base-gpu:latest
 MAINTAINER siwazaki@nefrock.com
+
 RUN apt-get update && apt-get install -y emacs zsh libmysqlclient-dev vim
 RUN pip3 install --force-reinstall --upgrade pip
 RUN pip3 install -U setuptools
